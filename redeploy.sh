@@ -1,4 +1,5 @@
 #!/bin/bash
+killall bootnode
 killall geth 
 rm node*.log -f
 
@@ -12,18 +13,24 @@ ps -ef | grep validator | grep -v grep| awk '{print $2}' | xargs kill -9
 ./deldata.sh
 
 
+curdir=$PWD
 
 
-
+# start beacon bootnode
+cd prysm && ./run_bootnode.sh && cd $curdir
+cd bnode && ./start.sh && cd $curdir
 
 ./deploygeth.sh
 sleep 5
 
-# deploy deposit contract and deposit
-cd contract && ./redeploy.sh
-
 
 # start beaconnode manual
-cd prysm && ./run.sh
+cd prysm && ./run_all_beacon.sh && cd $curdir
+
+
+# deploy deposit contract and deposit
+cd contract && ./redeploy.sh && cd $curdir
+
 
 # start validator manual
+cd prysm && ./run_all_validator.sh && cd $curdir

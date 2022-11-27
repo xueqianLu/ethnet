@@ -1,4 +1,5 @@
 #!/bin/bash
+killall bootnode
 
 killall geth 
 
