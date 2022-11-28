@@ -18,10 +18,10 @@ curdir=$PWD
 
 # start beacon bootnode
 cd prysm && ./run_bootnode.sh && cd $curdir
-cd bnode && ./start.sh && cd $curdir
 
 ./deploygeth.sh
 sleep 5
+./addpeers.sh
 
 
 # start beaconnode manual
