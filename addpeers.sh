@@ -28,5 +28,6 @@ done
 for((m=0;m<${total};m++));
 do
 	addpeer $m
+	sleep 1
 done
 

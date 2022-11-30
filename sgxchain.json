@@ -10,7 +10,7 @@
     "constantinopleBlock": 0,
     "petersburgBlock": 0,
     "istanbulBlock": 0,
-    "terminalTotalDifficulty":30000,
+    "terminalTotalDifficulty":3000,
     "clique": {
       "period": 3,
       "epoch": 30000

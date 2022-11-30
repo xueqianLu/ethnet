@@ -4,4 +4,5 @@ do
 	echo "node$i"
 	./init.sh $i
 	./mine.sh $i
+	sleep 4
 done
