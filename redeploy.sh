@@ -1,19 +1,10 @@
 #!/bin/bash
-killall bootnode
-killall geth 
-rm node*.log -f
-
-# stop beaconnode
-ps -ef | grep beaconnode | grep -v grep| awk '{print $2}' | xargs kill -9
-rm prysm/bnode*.log
-
-# stop validator
-ps -ef | grep validator | grep -v grep| awk '{print $2}' | xargs kill -9
+curdir=$PWD
+./stopall.sh
 
 ./deldata.sh
 
-
-curdir=$PWD
+cd  prysm && ./deldata.sh && cd $curdir
 
 
 # start beacon bootnode
@@ -21,8 +12,6 @@ cd prysm && ./run_bootnode.sh && cd $curdir
 
 ./deploygeth.sh
 sleep 3
-./addpeers.sh
-sleep 5
 
 # start beaconnode manual
 cd prysm && ./run_all_beacon.sh && cd $curdir

@@ -6,3 +6,6 @@ do
 	./init.sh $i
 	./mine.sh $i
 done
+
+sleep 5
+./addpeers.sh

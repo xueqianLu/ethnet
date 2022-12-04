@@ -21,8 +21,9 @@ function addpeer()
 
 for((i=0;i<=${total};i++));
 do
-	logfile="./node${i}.log"
+	logfile="./node${i}/node.log"
 	pid=`grep "self" $logfile | grep -Eo "enode.*[a-z0-9:/?=]"`
+	echo "pid=$pid"
 	peerids[$i]=$pid
 done
 
