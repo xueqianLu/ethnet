@@ -1,8 +1,8 @@
 #!/bin/bash
-for i in $(seq 0 3)
+source env.sh
+for i in $(seq 0 $MAXNODEIDX)
 do
 	echo "node$i"
 	./init.sh $i
 	./mine.sh $i
-	sleep 4
 done

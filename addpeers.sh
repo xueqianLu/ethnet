@@ -1,5 +1,6 @@
 #!/bin/bash
-total=4
+source env.sh
+total=$MAXNODEIDX
 declare -A peerids
 function addpeer() 
 {
@@ -18,14 +19,14 @@ function addpeer()
 	done
 }
 
-for((i=0;i<${total};i++));
+for((i=0;i<=${total};i++));
 do
 	logfile="./node${i}.log"
 	pid=`grep "self" $logfile | grep -Eo "enode.*[a-z0-9:/?=]"`
 	peerids[$i]=$pid
 done
 
-for((m=0;m<${total};m++));
+for((m=0;m<=${total};m++));
 do
 	addpeer $m
 	sleep 1
