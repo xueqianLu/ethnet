@@ -5,7 +5,7 @@ async function main() {
 	//const accounts = await web3.eth.getAccounts();
 	const accounts = await hre.ethers.getSigners();
 	for (var i = 0; i < accounts.length; i++){
-		var dpath=`./d${i}.json`;
+		var dpath=`./v${i}/data.json`;
 		const depositdata = require(dpath)
 		console.log("deposit data is ", depositdata)
 
