@@ -24,7 +24,7 @@ initialize
 	--ws.origins=* \
 	--authrpc.vhosts=* \
 	--authrpc.addr=0.0.0.0 \
-	--authrpc.jwtsecret=jwtsecret \
+	--authrpc.jwtsecret=/root/config/jwtsecret \
 	--datadir=gethdata \
 	--allow-insecure-unlock \
 	--unlock=0x123463a4b065722e99115d6c222f267d9cabb524 \

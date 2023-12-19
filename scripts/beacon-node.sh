@@ -1,11 +1,11 @@
 #!/bin/sh
-echo "beacon node with bootnode=$BOOTNODE"
+#echo "beacon node with bootnode=$BOOTNODE"
 
-./beacon-chain \
+/usr/bin/beacon-chain \
 	--datadir=beacondata \
 	--min-sync-peers=0 \
 	--genesis-state=/root/config/genesis.ssz \
-	--bootstrap-node= ${BOOTNODE}\
+	--bootstrap-node "${BOOTNODE}"\
 	--interop-eth1data-votes \
 	--chain-config-file=/root/config/config.yml \
 	--contract-deployment-block=0 \

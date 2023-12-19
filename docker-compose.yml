@@ -18,9 +18,9 @@ services:
     networks:
       - meta
 
-  beacon-1:
+  beacon1:
     image: ethnet/tools
-    container_name: beacon-1
+    container_name: beacon1
     entrypoint: /usr/local/bin/beacon-node.sh
     environment:
       - BOOTNODE=${BOOTNODE_ENR}
@@ -34,6 +34,28 @@ services:
       - ./config:/root/config
     depends_on:
       - execution
+    networks:
+      - meta
+
+  validators1:
+    image: ethnet/tools
+    container_name: validators1
+    entrypoint: /usr/local/bin/validator.sh
+    environment:
+      - VALIDATORS_NUM=64
+      - VALIDATORS_INDEX=0
+      - BEACONRPC=beacon1:4000
+    deploy:
+      restart_policy:
+        condition: on-failure
+        delay: 1s
+        max_attempts: 100
+        window: 120s
+    volumes:
+      - ./config:/root/config
+    depends_on:
+      - execution
+      - beacon1
     networks:
       - meta
 

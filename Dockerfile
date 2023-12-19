@@ -14,5 +14,7 @@ COPY ./scripts/execution.sh /usr/local/bin/execution.sh
 RUN chmod u+x /usr/local/bin/execution.sh
 COPY ./scripts/beacon-node.sh /usr/local/bin/beacon-node.sh
 RUN chmod u+x /usr/local/bin/beacon-node.sh
+COPY ./scripts/validator.sh /usr/local/bin/validator.sh
+#RUN chmod u+x /usr/local/bin/beacon-node.sh
 
 ENTRYPOINT [ "/usr/local/bin/entrypoint.sh" ]
