@@ -1,20 +1,6 @@
 version: "3.9"
 
 services:
-  bootnode:
-    image: ethnet/tools
-    container_name: bootnone
-    entrypoint: /usr/bin/bootnode -discv5-port 39000 -external-ip 172.99.1.1 -private 37871f094f89fc95599e73d72d3008c828bb76d0864759011fa14dbaf6cf3c06 -fork-version 20000089
-    deploy:
-      restart_policy:
-        condition: on-failure
-        delay: 1s
-        max_attempts: 100
-        window: 120s
-    networks:
-      meta:
-        ipv4_address: 172.99.1.1
-  
   execution:
     image: ethnet/tools
     container_name: execute
@@ -25,26 +11,32 @@ services:
         delay: 1s
         max_attempts: 100
         window: 120s
+    ports:
+      - "8551:8551"
     volumes:
       - ./config:/root/config
     networks:
       - meta
 
-  cadvisor:
-    image: google/cadvisor:latest
-    container_name: cadvisor
-    ports:
-      - "8081:8080"
+  beacon-1:
+    image: ethnet/tools
+    container_name: beacon-1
+    entrypoint: /usr/local/bin/beacon-node.sh
+    environment:
+      - BOOTNODE=${BOOTNODE_ENR}
+    deploy:
+      restart_policy:
+        condition: on-failure
+        delay: 1s
+        max_attempts: 100
+        window: 120s
     volumes:
-      - /:/rootfs:ro
-      - /var/run:/var/run:rw
-      - /sys:/sys:ro
-      - /var/lib/docker/:/var/lib/docker:ro
+      - ./config:/root/config
     depends_on:
-      - bootnode
       - execution
     networks:
       - meta
+
 networks:
   meta:
     driver: bridge
