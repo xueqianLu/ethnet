@@ -1,7 +1,7 @@
 #!/bin/sh
 #echo "beacon node with bootnode=$BOOTNODE"
 
-/usr/bin/beacon-chain \
+sleep 5 && /usr/bin/beacon-chain \
 	--datadir=beacondata \
 	--min-sync-peers=0 \
 	--genesis-state=/root/config/genesis.ssz \

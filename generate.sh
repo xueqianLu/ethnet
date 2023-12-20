@@ -12,6 +12,7 @@ echo "total validators $total_validators and node count $node_count"
 step=$(($total_validators/$node_count))
 
 file=docker-compose.yml
+rm -f $file
 
 echo 'version: "3.9"' >> $file
 echo '' >> $file
