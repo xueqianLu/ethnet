@@ -17,5 +17,6 @@ sleep 5 && /usr/bin/beacon-chain \
 	--jwt-secret=/root/config/jwtsecret \
 	--suggested-fee-recipient=0x123463a4b065722e99115d6c222f267d9cabb524 \
 	--minimum-peers-per-subnet=0 \
-	--enable-debug-rpc-endpoints
+	--enable-debug-rpc-endpoints \
+	${ALLPEERS}
 

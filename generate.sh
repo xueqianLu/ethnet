@@ -31,6 +31,7 @@ echo '    ports:' >> $file
 echo '      - "8551:8551"' >> $file
 echo '    volumes:' >> $file
 echo '      - ./config:/root/config' >> $file
+echo '      - ./data/gethdata:/root/gethdata' >> $file
 echo '    networks:' >> $file
 echo '      - meta' >> $file
 echo '' >> $file
@@ -53,6 +54,7 @@ echo "        max_attempts: 100" >> $file
 echo "        window: 120s" >> $file
 echo "    volumes:" >> $file
 echo "      - ./config:/root/config" >> $file
+echo "      - ./data/beacon${idx}:/root/beacondata" >> $file
 echo "    depends_on:" >> $file
 echo "      - execution" >> $file
 echo "    networks:" >> $file
@@ -74,6 +76,7 @@ echo '        max_attempts: 100' >> $file
 echo '        window: 120s' >> $file
 echo '    volumes:' >> $file
 echo '      - ./config:/root/config' >> $file
+echo "      - ./data/validators${idx}:/root/validatordata" >> $file
 echo '    depends_on:' >> $file
 echo '      - execution' >> $file
 echo "      - beacon${idx}" >> $file
