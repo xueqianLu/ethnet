@@ -1,3 +1,3 @@
 #!/bin/bash
 docker compose down
-docker stop bootnode ; docker rm bootnode
+#docker stop bootnode ; docker rm bootnode
