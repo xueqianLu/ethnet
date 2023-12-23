@@ -1,6 +1,7 @@
 #!/bin/bash
-total_validators=${1:-"64"}
-node_count=${2:-"16"}
+node_count=${1:-"1"}
+
+total_validators=64
 
 # check node count little than total validators
 if [ "$node_count" -gt "$total_validators" ];then
