@@ -13,6 +13,7 @@ if [ ! -f "/tmp/_tmp.peers" ]; then
   echo "ALLPEERS = $ALLPEERS"
   docker compose -f docker-compose.yml down
   docker compose -f docker-compose.yml up -d
+  echo "$ALLPEERS" > /tmp/_tmp.peers
 
 else
   NODEPEERS=`cat /tmp/_tmp.peers`
