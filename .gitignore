@@ -3,3 +3,6 @@ validator
 *.log
 beaconnode
 node*
+config
+data
+docker-compose.yml
