@@ -1,5 +1,5 @@
 #!/bin/sh
-#echo "beacon node with bootnode=$BOOTNODE"
+echo "beacon node with bootnode=$BOOTNODE allpeer=${ALLPEERS}"
 
 sleep 5 && /usr/bin/beacon-chain \
 	--datadir=beacondata \
@@ -14,6 +14,8 @@ sleep 5 && /usr/bin/beacon-chain \
 	--grpc-gateway-host=0.0.0.0 \
 	--execution-endpoint=http://execute:8551 \
 	--accept-terms-of-use \
+	--verbosity=debug \
+	--p2p-static-id=true \
 	--jwt-secret=/root/config/jwtsecret \
 	--suggested-fee-recipient=0x123463a4b065722e99115d6c222f267d9cabb524 \
 	--minimum-peers-per-subnet=0 \

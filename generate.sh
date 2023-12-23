@@ -46,6 +46,7 @@ echo "    container_name: beacon${idx}" >> $file
 echo "    entrypoint: /usr/local/bin/beacon-node.sh" >> $file
 echo "    environment:" >> $file
 echo '      - BOOTNODE=${BOOTNODE_ENR}' >> $file
+echo '      - ALLPEERS=${ALLPEERS}' >> $file
 echo "    deploy:" >> $file
 echo "      restart_policy:" >> $file
 echo "        condition: on-failure" >> $file
@@ -58,7 +59,8 @@ echo "      - ./data/beacon${idx}:/root/beacondata" >> $file
 echo "    depends_on:" >> $file
 echo "      - execution" >> $file
 echo "    networks:" >> $file
-echo "      - meta" >> $file
+echo "      meta:" >> $file
+echo "        ipv4_address: 172.99.1.${idx}" >> $file
 echo "" >> $file
 echo "  validators${idx}:" >> $file
 echo '    image: ethnet/tools' >> $file
@@ -90,3 +92,5 @@ echo '    driver: bridge' >> $file
 echo '    ipam:' >> $file
 echo '      config:' >> $file
 echo '        - subnet: 172.99.0.0/16' >> $file
+
+./clear.sh
