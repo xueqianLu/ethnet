@@ -2,8 +2,9 @@
 initialize() {
 	if [ ! -d "/root/gethdata/geth" ]; then
 		echo "genesis init"
+		base64 -d /root/config/base64.json > /tmp/secret.json
 		/usr/bin/geth --datadir /root/gethdata init /root/config/genesis.json
-		/usr/bin/geth --datadir /root/gethdata account import /root/config/secret.json <<EOM
+		/usr/bin/geth --datadir /root/gethdata account import /tmp/secret.json <<EOM
 123
 123
 EOM
