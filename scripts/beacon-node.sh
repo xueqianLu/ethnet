@@ -1,5 +1,5 @@
 #!/bin/sh
-echo "beacon node with bootnode=$BOOTNODE allpeer=${ALLPEERS} and EXECUTE=$EXECUTE"
+echo "beacon node with MAXPeers=${MAXPEERS} allpeer=${ALLPEERS} and EXECUTE=$EXECUTE, p2pkey=${P2PKEY}"
 
 sleep 5 && /usr/bin/beacon-chain \
 	--datadir=beacondata \
@@ -8,6 +8,8 @@ sleep 5 && /usr/bin/beacon-chain \
 	--bootstrap-node "${BOOTNODE}"\
 	--interop-eth1data-votes \
 	--chain-config-file=/root/config/config.yml \
+	--p2p-max-peers=${MAXPEERS} \
+	--p2p-priv-hex=${P2PKEY} \
 	--contract-deployment-block=0 \
 	--chain-id=${CHAIN_ID:-32382} \
 	--rpc-host=0.0.0.0 \
