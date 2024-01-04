@@ -8,19 +8,22 @@ if [ "$CASEFILE" ==  "" ];then
 fi
 
 # check $CASEFILE is exist in testcase dir
-if [ ! -f "testcase/$CASEFILE" ];then
+if [ ! -f "$CASEFILE" ];then
   echo "invalid param, case file is not exist"
   exit 1
 fi
 
+# clear generated dir
+./scripts/clear.sh || exit 1
+
 # parse case file
-./bin/dparser -file testcase/$CASEFILE || exit 1
+./bin/dparser -file $CASEFILE || exit 1
 
 # build docker image
-./generated/build.sh || exit 1
+base ./generated/build.sh || exit 1
 
 # generate genesis
-./scripts/generate.sh || exit 1
+./scripts/genesis.sh || exit 1
 
 # start docker compose
 docker compose -f docker-compose.yml up -d
