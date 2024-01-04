@@ -16,8 +16,8 @@ FROM alpine
 
 WORKDIR /root
 
-COPY  --from=build /geth /usr/bin/beacon-chain
-COPY ./entrypoint/beacon-node.sh /usr/local/bin/execution.sh
+COPY  --from=build /geth /usr/bin/geth
+COPY ./entrypoint/beacon-execution.sh /usr/local/bin/execution.sh
 RUN chmod u+x /usr/local/bin/execution.sh
 
 ENTRYPOINT [ "/usr/local/bin/entrypoint.sh" ]
