@@ -17,7 +17,7 @@ FROM ubuntu:22.04
 WORKDIR /root
 
 COPY  --from=build /geth /usr/bin/beacon-chain
-COPY ./scripts/beacon-node.sh /usr/local/bin/execution.sh
+COPY ./entrypoint/beacon-node.sh /usr/local/bin/execution.sh
 RUN chmod u+x /usr/local/bin/execution.sh
 
 ENTRYPOINT [ "/usr/local/bin/entrypoint.sh" ]
