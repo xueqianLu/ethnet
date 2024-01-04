@@ -15,6 +15,10 @@ RUN  cd /build/prysm && go build -o /beacon-chain ./cmd/beacon-chain
 
 FROM alpine
 
+RUN apk update && \
+    apk upgrade && \
+    apk add --no-cache build-base
+
 WORKDIR /root
 
 COPY  --from=build /beacon-chain /usr/bin/beacon-chain

@@ -11,7 +11,7 @@
         ],
         "beacons": [{
                 "name": "beacon-1",
-                "version": "v4.1.1-base",
+                "version": "v4.1.1-m0",
                 "executor": "execute-1"
             }
         ],

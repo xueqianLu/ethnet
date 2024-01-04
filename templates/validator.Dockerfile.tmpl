@@ -15,6 +15,10 @@ RUN  cd /build/prysm && go build -o /validator ./cmd/validator
 
 FROM alpine
 
+RUN apk update && \
+    apk upgrade && \
+    apk add --no-cache build-base
+
 WORKDIR /root
 
 COPY  --from=build /validator /usr/bin/validator
