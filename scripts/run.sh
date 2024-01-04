@@ -20,7 +20,7 @@ fi
 ./bin/dparser -file $CASEFILE || exit 1
 
 # build docker image
-base ./generated/build.sh || exit 1
+bash ./generated/build.sh || exit 1
 
 # generate genesis
 ./scripts/genesis.sh || exit 1

@@ -13,7 +13,7 @@ RUN git clone -b {{ .Version }}  --single-branch https://github.com/tsinghua-cel
 
 RUN  cd /build/prysm && go build -o /beacon-chain ./cmd/beacon-chain
 
-FROM ubuntu:22.04
+FROM alpine
 
 WORKDIR /root
 
