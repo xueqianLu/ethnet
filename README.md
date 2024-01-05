@@ -1,17 +1,39 @@
 # ethnet 
 This is a tools for build multi node eth2.0 private network with interop mode.
 
+# 
+```shell
+.
+├── README.md
+├── bin         # binary files
+├── config      # config files
+├── data        # system data files
+├── entrypoint  # container entrypoint scripts
+├── generated   # generated files for testcase
+├── scripts     # scripts for build and run
+├── templates   # Dockerfile templates
+└── testcase    # testcase files
+```
+
 # environment
 - linux operating system
 - docker and docker compose
 
 # step to run
 1. clone this repo
-2. run `./build.sh` to build the docker image
-3. run `./generate.sh N` to generate `docker-compose.yml` and config files for N nodes.
-4. run `./start.sh` and `./stop.sh` to boot and stop all nodes.
+2. choose a testcase in `testcase` folder
+3. run the case with command `./scripts/run.sh testcase/<xxxx>`
+4. run `./stop.sh` to stop the system.
 
 # nodes topology
 - N execute nodes and N beacon nodes
-- beacon node connect to each other with peer parameter
 - static 64 validators
+
+# what is testcase
+Testcase is a topology of all nodes, which is defined in `testcase` folder.
+
+- testcase/normal-1.json define a single node topology
+- testcase/normal-5.json define a 5 nodes topology
+- testcase/case0.json define a complex topological structure with special peer-peer connection.
+
+You can create new testcase file to define your own topology.
