@@ -13,12 +13,16 @@ RUN git clone -b {{ .Version }}  --single-branch https://github.com/tsinghua-cel
 
 RUN  cd /build/prysm && go build -o /beacon-chain ./cmd/beacon-chain
 
-FROM ubuntu:22.04
+FROM alpine
+
+RUN apk update && \
+    apk upgrade && \
+    apk add --no-cache build-base
 
 WORKDIR /root
 
 COPY  --from=build /beacon-chain /usr/bin/beacon-chain
-COPY ./scripts/beacon-node.sh /usr/local/bin/beacon-node.sh
+COPY ./entrypoint/beacon-node.sh /usr/local/bin/beacon-node.sh
 RUN chmod u+x /usr/local/bin/beacon-node.sh
 
 ENTRYPOINT [ "/usr/local/bin/beacon-node.sh" ]

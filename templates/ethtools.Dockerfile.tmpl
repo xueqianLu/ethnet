@@ -8,13 +8,13 @@ COPY ./bin/beacon-chain /usr/bin/beacon-chain
 COPY ./bin/bootnode /usr/bin/bootnode
 COPY ./bin/validator /usr/bin/validator
 
-COPY ./scripts/entrypoint.sh /usr/local/bin/entrypoint.sh
+COPY ./entrypoint/entrypoint.sh /usr/local/bin/entrypoint.sh
 RUN chmod u+x /usr/local/bin/entrypoint.sh
-COPY ./scripts/execution.sh /usr/local/bin/execution.sh
+COPY ./entrypoint/execution.sh /usr/local/bin/execution.sh
 RUN chmod u+x /usr/local/bin/execution.sh
-COPY ./scripts/beacon-node.sh /usr/local/bin/beacon-node.sh
+COPY ./entrypoint/beacon-node.sh /usr/local/bin/beacon-node.sh
 RUN chmod u+x /usr/local/bin/beacon-node.sh
-COPY ./scripts/validator.sh /usr/local/bin/validator.sh
+COPY ./entrypoint/validator.sh /usr/local/bin/validator.sh
 #RUN chmod u+x /usr/local/bin/beacon-node.sh
 
 ENTRYPOINT [ "/usr/local/bin/entrypoint.sh" ]
