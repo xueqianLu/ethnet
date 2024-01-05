@@ -25,9 +25,9 @@ This is a tools for build multi node eth2.0 private network with interop mode.
 3. run the case with command `./scripts/run.sh testcase/<xxxx>`
 4. run `./stop.sh` to stop the system.
 
-# nodes topology
-- N execute nodes and N beacon nodes
+# static config
 - static 64 validators
+- static genesis.json
 
 # what is testcase
 Testcase is a topology of all nodes, which is defined in `testcase` folder.
