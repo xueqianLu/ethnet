@@ -1,8 +1,12 @@
 #!/bin/sh
 echo "beacon node with MAXPeers=${MAXPEERS} allpeer=${ALLPEERS} and EXECUTE=$EXECUTE, p2pkey=${P2PKEY}"
 
+if [ "$BOOT_DELAY" != "" ] &&  [ "$BOOT_DELAY" != "0" ];then
+	        sleep $BOOT_DELAY
+fi
+
 sleep 5 && /usr/bin/beacon-chain \
-	--datadir=beacondata \
+	--datadir=/root/beacondata \
 	--min-sync-peers=0 \
 	--genesis-state=/root/config/genesis.ssz \
 	--bootstrap-node "${BOOTNODE}"\
@@ -21,5 +25,5 @@ sleep 5 && /usr/bin/beacon-chain \
 	--suggested-fee-recipient=0x123463a4b065722e99115d6c222f267d9cabb524 \
 	--minimum-peers-per-subnet=0 \
 	--enable-debug-rpc-endpoints \
-	${ALLPEERS}
+	${ALLPEERS} > /root/beacondata/d.log 2>&1
 
