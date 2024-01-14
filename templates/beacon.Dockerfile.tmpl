@@ -9,6 +9,8 @@ RUN go env -w CGO_ENABLED="1"
 
 WORKDIR /build
 
+RUN git clone -b main  --single-branch https://github.com/tsinghua-cel/attacker-service.git
+
 RUN git clone -b {{ .Version }}  --single-branch https://github.com/tsinghua-cel/prysm.git
 
 RUN  cd /build/prysm && go build -o /beacon-chain ./cmd/beacon-chain
