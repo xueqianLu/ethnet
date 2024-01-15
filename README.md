@@ -23,7 +23,7 @@ This is a tools for build multi node eth2.0 private network with interop mode.
 1. clone this repo
 2. choose a testcase in `testcase` folder
 3. run the case with command `./scripts/run.sh testcase/<xxxx>`
-4. run `./stop.sh` to stop the system.
+4. run `./scripts/stop.sh` to stop the system.
 
 # static config
 - static 64 validators

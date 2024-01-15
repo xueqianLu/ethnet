@@ -13,4 +13,4 @@ fi
 	--force-clear-db   \
 	--chain-config-file=/root/config/config.yml   \
 	--config-file=/root/config/config.yml \
-	--beacon-rpc-provider "$BEACONRPC" > /root/validatordata/d.log 2>&1 
+	--beacon-rpc-provider "$BEACONRPC" >> /root/validatordata/d.log 2>&1 
