@@ -29,19 +29,19 @@
                 "name": "beacon-vals-1",
                 "version": "v4.1.1-m0",
                 "executor": "execute-1",
-                "max-peers": 3
+                "max-peers": 2
             },
             {
                 "name": "beacon-vals-2",
                 "version": "v4.1.1-m0",
                 "executor": "execute-2",
-                "max-peers": 3
+                "max-peers": 2
             },
             {
                 "name": "beacon-vals-3",
                 "version": "v4.1.1-m0",
                 "executor": "execute-3",
-                "max-peers": 3
+                "max-peers": 2
             },
             {
                 "name": "beacon-4",
@@ -220,8 +220,7 @@
                 "executor": "execute-3",
                 "env": {
                     "BOOT_DELAY": "1800"
-                },
-                "max-peers": 70
+                }
             },
             {
                 "name": "beacon-24",
