@@ -1,0 +1,12 @@
+{
+  "block": {
+    "delay_enable": false,
+    "broad_cast_delay": 40000,
+    "modify_enable": false
+  },
+  "attest": {
+    "delay_enable": false,
+    "broad_cast_delay": 40000,
+    "modify_enable": true
+  }
+}

@@ -6,7 +6,9 @@
     "topology": {
       "attackers": [{
         "name": "attacker-1",
-        "version": "v0.0.2"
+        "version": "v0.0.6",
+        "config": "config/attacker-config.toml",
+        "strategy": "config/strategy-1.json"
       }],
         "executors": [{
                 "name": "execute-1",
@@ -17,15 +19,18 @@
                 "name": "beacon-1",
                 "version": "v4.1.1-t2",
                 "executor": "execute-1",
-          "env": {
-            "ATTACKER_SERVICE_URL": "http://attacker-1:9999"
-          }
+                "env": {
+                  "ATTACKER_SERVICE_URL": "http://172.17.0.1:12000"
+                }
             }
         ],
         "validators": [{
                 "name": "validator-1",
                 "version": "v4.1.1-base",
-                "beacon": "beacon-1"
+                "beacon": "beacon-1",
+                "env": {
+                  "ATTACKER_SERVICE_URL": "http://172.17.0.1:12000"
+                }
             }
         ]
     }

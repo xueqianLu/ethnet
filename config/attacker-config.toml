@@ -1,3 +1,7 @@
-http_port=9999
+http_port=10000
 http_host="0.0.0.0"
 metrics_port = 28080
+execute_rpc = "http://172.17.0.1:11000"
+beacon_rpc = "172.17.0.1:13000"
+reward_file = "/root/attackerdata/reward.csv"
+strategy = "/root/strategy.json"

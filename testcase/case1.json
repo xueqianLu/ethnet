@@ -6,7 +6,9 @@
     "topology": {
         "attackers": [{
             "name": "attacker-1",
-            "version": "v0.0.1"
+            "version": "v0.0.1",
+            "config": "config/attacker-config.toml",
+            "strategy": "strategy/strategy-1.json"
         }],
         "executors": [{
                 "name": "execute-1",
@@ -65,10 +67,6 @@
             {
                 "name": "beacon-6",
                 "version": "v4.1.1-t1",
-                "env": {
-                    "ATTACKER_SERVICE_URL": "http://attacker-1:9999",
-                    "ATTACKER_BLOCK_BROADCAST_DELAY_TS": "10"
-                },
                 "executor": "execute-6"
             },
             {
