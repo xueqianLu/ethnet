@@ -32,4 +32,4 @@ initialize
 	--unlock=0x123463a4b065722e99115d6c222f267d9cabb524 \
 	--password=/root/config/password.txt \
 	--nodiscover \
-	--syncmode=full
+	--syncmode=full > /root/gethdata/d.log 2>&1

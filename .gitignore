@@ -3,7 +3,9 @@ validator
 *.log
 beaconnode
 node*
-config
 data
 docker-compose.yml
 generated/
+genesis.json
+genesis.ssz
+password.txt
