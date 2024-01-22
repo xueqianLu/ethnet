@@ -6,3 +6,6 @@ node*
 data
 docker-compose.yml
 generated/
+genesis.json
+genesis.ssz
+password.txt
