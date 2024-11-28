@@ -5,7 +5,7 @@ docker build -t ethnettools -f templates/ethtools.Dockerfile.tmpl .
 docker run -it --rm -v "${curdir}/config:/root/config" --name generate --entrypoint /usr/bin/prysmctl ethnettools \
 	testnet \
 	generate-genesis \
-	--fork=capella \
+	--fork=deneb \
 	--num-validators=64 \
 	--genesis-time-delay=15 \
 	--output-ssz=/root/config/genesis.ssz \

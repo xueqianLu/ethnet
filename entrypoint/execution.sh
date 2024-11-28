@@ -16,7 +16,7 @@ initialize
 
 /usr/bin/geth --datadir /root/gethdata \
 	--http \
-	--http.api=eth,net,web3 \
+	--http.api=eth,net,web3,admin,txpool,debug \
 	--http.addr=0.0.0.0 \
 	--http.corsdomain=* \
 	--ws \
@@ -28,8 +28,8 @@ initialize
 	--authrpc.port=8551 \
 	--authrpc.jwtsecret=/root/config/jwtsecret \
 	--datadir=gethdata \
+	--bootnodes "enode://34c9a172990c85f80df96fe601743fbed3b3a00032b96dc44d56196f04a389f680b9b087d2214265fb4a9d6d1283199f33660965a307798f51e59342bbba881f@172.99.1.200:0?discport=30301" \
 	--allow-insecure-unlock \
 	--unlock=0x123463a4b065722e99115d6c222f267d9cabb524 \
 	--password=/root/config/password.txt \
-	--nodiscover \
 	--syncmode=full > /root/gethdata/d.log 2>&1

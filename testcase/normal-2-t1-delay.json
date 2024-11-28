@@ -1,0 +1,58 @@
+{
+  "version": "v1",
+  "config": {
+    "total-time": 1800
+  },
+  "topology": {
+    "attackers": [{
+      "name": "attacker-1",
+      "version": "strategy-v5",
+      "config": "./config/attacker-config.toml",
+      "strategy": "./strategy/strategy.json"
+    }],
+    "executors": [{
+      "name": "execute-1",
+      "version": "v1.13-base-v5"
+    },
+      {
+        "name": "execute-2",
+        "version": "v1.13-base-v5"
+      }
+    ],
+    "beacons": [{
+      "name": "beacon-1",
+      "version": "v5.0.1-t1",
+      "env": {
+        "ATTACKER_SERVICE_URL": "http://172.17.0.1:12000"
+      },
+      "executor": "execute-1"
+    },
+      {
+        "name": "beacon-2",
+        "version": "v5.0.1-base",
+        "env": {
+          "ATTACKER_SERVICE_URL": "http://172.17.0.1:12000"
+        },
+        "executor": "execute-2"
+      }
+    ],
+    "validators": [{
+      "name": "validator-1",
+      "version": "v5.0.1-t1",
+      "env": {
+        "ATTACKER_SERVICE_URL": "http://172.17.0.1:12000"
+      },
+      "beacon": "beacon-1",
+      "validator_count": 21
+    },
+      {
+        "name": "validator-2",
+        "version": "v5.0.1-base",
+        "env": {
+          "ATTACKER_SERVICE_URL": "http://172.17.0.1:12000"
+        },
+        "beacon": "beacon-2"
+      }
+    ]
+  }
+}
